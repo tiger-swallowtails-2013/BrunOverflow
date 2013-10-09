@@ -5,4 +5,5 @@ describe Answer do
   it "has a valid FactoryGirl factory" do
     expect(FactoryGirl.build(:answer)).to be_valid
   end
+  it { should belong_to(:question)}
 end
