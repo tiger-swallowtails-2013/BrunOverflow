@@ -4,6 +4,14 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    begin
+      @question = Question.find(params[:id])
+    rescue
+      redirect_to :status => 404
+    end
+  end
+
+  def edit
     @question = Question.find(params[:id])
   end
 
@@ -20,4 +28,15 @@ class QuestionsController < ApplicationController
       redirect_to :status => 404
     end
   end
+
+  def update
+    begin
+      @question = Question.find(params[:id])
+      @question.update_attributes(params[:question])
+      redirect_to @question
+    rescue
+      redirect_to :status => 404
+    end
+  end
+
 end
