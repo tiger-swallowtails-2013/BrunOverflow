@@ -29,4 +29,18 @@ describe QuestionsController do
     end
   end
 
+  describe "DELETE #destroy" do
+    it "should delete a question with the id passed from the DB" do
+      question
+      expect {
+        delete :destroy, { id: question.id }
+      }.to change {Question.count}.by -1
+    end
+
+    it "redirects to 404 when an existent id is passed" do
+      delete :destroy, { id: 0 }
+      expect(response.status).to eq 404
+    end
+  end
+
 end
