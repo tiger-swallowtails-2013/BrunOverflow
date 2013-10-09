@@ -3,6 +3,7 @@ require 'faker'
 FactoryGirl.define do
   factory :answer do
     body { Faker::Lorem.paragraph }
+    question
   end
 
   factory :question do |f|
