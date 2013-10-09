@@ -16,6 +16,7 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'jasmine'
+  gem 'shoulda-matchers'
 end
 
 # Gems used only for assets and not required
