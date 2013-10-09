@@ -37,8 +37,21 @@ describe QuestionsController do
       }.to change {Question.count}.by -1
     end
 
-    xit "redirects to 404 when an existent id is passed" do
+    it "redirects to 404 when an existent id is passed" do
       delete :destroy, { id: 0 }
+      expect(response.status).to eq 404
+    end
+  end
+
+  describe "GET #show" do
+    it "should assign the question with the id passed to a variable" do
+      question
+      get :show, { id: question.id }
+      expect(assigns(:question)).not_to be_nil
+    end
+
+    it "redirects to 404 when an existent id is passed" do
+      get :show, { id: 0 }
       expect(response.status).to eq 404
     end
   end
