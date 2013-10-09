@@ -16,9 +16,7 @@ describe AnswersController do
       expect(assigns(:answer)).to be_a(Answer)
     end
 
-    it "should redirect back to original question" do
-
-    end
+    it "should redirect back to original question"
 
   end
 end
