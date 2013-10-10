@@ -1,5 +1,6 @@
 Brunoverflow::Application.routes.draw do
   resources :answers, :questions, :users
+  resources :sessions, only: [:create, :destroy]
 
   root to: 'questions#index'
   # The priority is based upon order of creation:
