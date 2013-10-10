@@ -9,4 +9,5 @@ FactoryGirl.define do
     f.title { Faker::Lorem.sentence(rand(3..5)) }
     f.content { Faker::Lorem.paragraph(rand(1..3)) }
   end
+
 end
