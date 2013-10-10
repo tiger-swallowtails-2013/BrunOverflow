@@ -26,8 +26,8 @@ describe "guest can create a question" do
     it "should display a login link so the user can sign up" do
       visit root_path
       click_link "Sign Up"
-      fill_in "user_name", with: "bob"
-      fill_in "user_password", with: "password"
+      find("#signup").fill_in "user_name", with: "bob"
+      find("#signup").fill_in "user_password", with: "password"
       click_on 'Sign Up'
       expect(current_path).to eq(root_path)
     end
