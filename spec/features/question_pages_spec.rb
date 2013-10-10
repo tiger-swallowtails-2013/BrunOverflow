@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe "guest can create a question" do
+  let(:question) { FactoryGirl.create(:question) }
+
   describe "index page" do
     it "displays a new question link" do
       visit root_path
@@ -11,6 +13,14 @@ describe "guest can create a question" do
       visit root_path
       click_link 'Ask a Question'
       expect(current_path).to eq(new_question_path)
+    end
+
+    it "goes to question #show page when user clicks on a question on the list and shows its content" do
+      question
+      visit root_path
+      click_link question.title
+      expect(current_path).to eq(question_path(question))
+      page.should have_content question.content
     end
   end
 
