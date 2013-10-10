@@ -7,7 +7,7 @@ feature "answers" do
   scenario "submitting the form adds an answer to the question" do
     visit question_path(FactoryGirl.create(:question))
     expect {
-      fill_in 'Body', with: new_answer.body
+      fill_in 'answer_body', with: new_answer.body
       click_button "create new comment"
     }.to change(Answer, :count).by(1)
   end
