@@ -22,6 +22,15 @@ describe "guest can create a question" do
       expect(current_path).to eq(question_path(question))
       page.should have_content question.content
     end
+
+    it "should display a login link so the user can sign up" do
+      visit root_path
+      click_link "Sign Up"
+      fill_in "user_name", with: "bob"
+      fill_in "user_password", with: "password"
+      click_on 'Sign Up'
+      expect(current_path).to eq(root_path)
+    end
   end
 
   describe "new question page" do
