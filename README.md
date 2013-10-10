@@ -14,5 +14,19 @@
 2. Related: sessions not implemented (anyone can ask or answer a question)
 3. Need views/links to be able to edit and/or delete questions (controller actions and routes are implemented)
 
+### Loafdubst goals:
+1. Session Spec
+  - Login
+  - Routes
+  - Controller (create)
+  - Views (login form, logout button)
+  - Authentication
+  - Logout (destroy)
+2. Question/Answer User integration
+  - Must be signed in to post a Q or A
+    - Authentication
+    - Conditional views
+  - Question/answers belong to a user
+    - Model validations
 
 

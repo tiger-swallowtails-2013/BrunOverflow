@@ -17,7 +17,7 @@ group :test do
   gem 'capybara'
   gem 'jasmine'
   gem 'shoulda-matchers'
-  gem 'capybara'
+  gem 'capybara' #we lurv capybara
 end
 
 # Gems used only for assets and not required
