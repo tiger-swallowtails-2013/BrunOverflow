@@ -6,4 +6,5 @@ describe Answer do
     expect(FactoryGirl.build(:answer)).to be_valid
   end
   it { should belong_to(:question)}
+  it { should belong_to(:user)}
 end
