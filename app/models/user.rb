@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :password
   validates_uniqueness_of :name
+
+  def self.authorize(username, password)
+    user = User.where('name = ? AND password = ?', username, password).first
+  end
 end
