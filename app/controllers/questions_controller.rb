@@ -10,6 +10,7 @@ class QuestionsController < ApplicationController
   def show
     begin
       @question = Question.find(params[:id])
+      @answer = Answer.new
     rescue
       redirect_to :status => 404
     end

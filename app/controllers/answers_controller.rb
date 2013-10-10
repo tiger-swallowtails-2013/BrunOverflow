@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(params[:answer])
     @answer.save
-    # eventually redirect to the original question?
-    redirect_to @answer
+
+    redirect_to @answer.question
   end
 end
