@@ -10,6 +10,7 @@ describe "guest can create a question" do
     end
 
     it "clicking on Ask a Question link goes to questions#new" do
+      spec_helper_login
       visit root_path
       click_link 'Ask a Question'
       expect(current_path).to eq(new_question_path)
