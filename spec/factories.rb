@@ -12,7 +12,7 @@ FactoryGirl.define do
 
     factory :question_with_answers do |f|
       after(:create) do |question|
-        FactoryGirl.create_list(:answer, 5, question: question)
+        FactoryGirl.create_list(:answer, rand(10), question: question)
       end
     end
   end
