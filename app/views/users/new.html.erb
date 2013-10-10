@@ -2,9 +2,16 @@
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-
   <%= f.label :password %>
   <%= f.text_field :password %>
-
   <%= f.submit "Sign Up" %>
+<% end %>
+
+<h1>Login</h1>
+<%= form_for @user, url: sessions_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= f.submit "Login" %>
 <% end %>
