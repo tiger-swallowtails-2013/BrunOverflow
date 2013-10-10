@@ -1,4 +1,4 @@
-<% if @current_user %>
+<% if logged_in? %>
   <%= link_to "Log out", controller: :sessions_controller, action: :destroy %>
 <% else %>
   <%= link_to 'Login', :new_user %>
