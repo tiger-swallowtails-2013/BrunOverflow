@@ -1,8 +1,11 @@
 class QuestionsController < ApplicationController
 
+  before_filter :authenticate, :except => [:show, :index]
+
   def new
     @question = Question.new
   end
+
   def index
     @questions = Question.order('created_at DESC')
   end

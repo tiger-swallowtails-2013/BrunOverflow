@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  before_filter :authenticate
 
   def new
     @answer = Answer.new
