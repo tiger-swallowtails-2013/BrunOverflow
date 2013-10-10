@@ -1,1 +1,8 @@
-index.html.erb
+<a href="<%= new_question_path %>">Ask a Question</a>
+<div id="questions">
+  <ul>
+    <% @questions.each do |question| %>
+      <li class="question"><%= link_to question.title, question %></li>
+    <% end %>
+  </ul>
+</div>
