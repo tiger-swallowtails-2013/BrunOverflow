@@ -1,0 +1,9 @@
+<%= @question.title %>
+<%= @question.content %>
+
+
+<%= @question.answers.each do |answer| %>
+  <%= answer.body %>
+<% end %>
+
+<%= render partial: 'answers/inline_form' %>
