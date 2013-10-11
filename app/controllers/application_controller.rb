@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
   def logged_in?
     session[:user_id] ? true : false
   end
+
+  helper_method :logged_in?
 end
