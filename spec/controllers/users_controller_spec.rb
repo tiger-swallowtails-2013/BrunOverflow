@@ -7,7 +7,8 @@ describe UsersController do
         post :create, {
           user: {
             name: 'madMax',
-            password: 'apples'
+            password: 'apples',
+            email: "max@gmail.com"
           }
         }
       }.to change { User.count }.by 1
