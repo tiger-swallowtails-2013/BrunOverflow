@@ -5,5 +5,8 @@
   <%= answer.body %><br>
 <% end %>
 
-<%= render partial: 'answers/inline_form' %>
-
+<% if logged_in? %>
+  <%= render partial: 'answers/inline_form' %>
+<% else %>
+  <p> Login to submit a comment </p>
+<% end %>
