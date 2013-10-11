@@ -17,4 +17,9 @@ FactoryGirl.define do
     end
   end
 
+  factory :user do |f|
+    f.name { Faker::Internet.user_name }
+    f.password { Faker::Internet.password }
+  end
+
 end
