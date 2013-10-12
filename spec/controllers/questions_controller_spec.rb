@@ -26,17 +26,10 @@ describe QuestionsController do
   end
 
   describe "GET #index" do
-    it "sets a variable with all the questions in the DB" do
-      3.times { FactoryGirl.create(:question) }
-      get :index
-      expect(assigns(:questions).count).to eq(3)
-    end
-
     it "returns all questions ordered by create date DESC" do
-      3.times { FactoryGirl.create(:question) }
-      question
+      questions = 3.times.map { FactoryGirl.create(:question) }
       get :index
-      expect(assigns(:questions).first).to eq(question)
+      expect(assigns(:questions)).to eq(questions.reverse)
     end
   end
 
