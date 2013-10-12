@@ -22,4 +22,17 @@ FactoryGirl.define do
     f.password { Faker::Internet.password }
   end
 
+  factory :vote do |f|
+    f.value 1
+    f.user { FactoryGirl.build(:user) }
+
+    factory :vote_on_question do |m|
+      m.votable { FactoryGirl.build(:question) }
+    end
+
+    factory :vote_on_answer do |m|
+      m.votable { FactoryGirl.build(:answer) }
+    end
+  end
+
 end

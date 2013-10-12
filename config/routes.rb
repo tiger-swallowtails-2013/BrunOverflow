@@ -1,7 +1,9 @@
 Brunoverflow::Application.routes.draw do
-  resources :answers, :questions, :users
+  resources :answers, :questions, :users, :votes
   resources :sessions, only: [:create]
+
   match 'login', to: 'sessions#new'
+
   root to: 'questions#index'
 
   # The priority is based upon order of creation:
