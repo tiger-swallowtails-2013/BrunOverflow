@@ -18,7 +18,7 @@ FactoryGirl.define do
   end
 
   factory :user do |f|
-    f.name { Faker::Internet.user_name }
+    f.email { Faker::Internet.email }
     f.password { Faker::Internet.password }
   end
 
@@ -33,7 +33,6 @@ FactoryGirl.define do
     factory :vote_on_answer do |m|
       m.votable { FactoryGirl.build(:answer) }
     end
-
   end
 
 end
