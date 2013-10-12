@@ -22,8 +22,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(params[:question])
-    redirect_to root_path
+    @question = Question.create(params[:question])
+    if @question.save
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy

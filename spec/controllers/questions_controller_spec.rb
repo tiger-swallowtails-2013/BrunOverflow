@@ -10,7 +10,18 @@ describe QuestionsController do
           question:  FactoryGirl.attributes_for(:question)
         }
       }.to change { Question.count }.by 1
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to question_path(Question.last)
+    end
+
+    it "creating question with no title renders edit page again" do
+      expect {
+        invalid_question_attributes = FactoryGirl.attributes_for(:question)
+        invalid_question_attributes.delete(:title)
+        post :create, {
+          question:  invalid_question_attributes
+        }
+      }.not_to change { Question.count }
+      expect(current_path).to render_template :edit
     end
   end
 
