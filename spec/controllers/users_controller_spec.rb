@@ -6,8 +6,9 @@ describe UsersController do
       expect {
         post :create, {
           user: {
-            name: 'madMax',
+            email: 'mad@max.com',
             password: 'apples'
+
           }
         }
       }.to change { User.count }.by 1
