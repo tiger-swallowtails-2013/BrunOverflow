@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
   end
+
   def index
     @questions = Question.order('created_at DESC')
   end
@@ -21,8 +22,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(params[:question])
-    redirect_to root_path
+    @question = Question.create(params[:question])
+    if @question.save
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy
