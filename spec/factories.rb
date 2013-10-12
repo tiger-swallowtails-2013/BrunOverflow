@@ -25,7 +25,15 @@ FactoryGirl.define do
   factory :vote do |f|
     f.value 1
     f.user { FactoryGirl.build(:user) }
-    f.votable { FactoryGirl.build(:question) }
+
+    factory :vote_on_question do |m|
+      m.votable { FactoryGirl.build(:question) }
+    end
+
+    factory :vote_on_answer do |m|
+      m.votable { FactoryGirl.build(:answer) }
+    end
+
   end
 
 end

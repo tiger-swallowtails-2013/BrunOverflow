@@ -8,7 +8,7 @@ describe VotesController  do
     it "should create a vote" do
       expect {
         post :create, {
-          :vote => FactoryGirl.attributes_for(:vote)
+          :vote => FactoryGirl.attributes_for(:vote_on_question)
         }
       }.to change { Vote.count }.by 1
     end
