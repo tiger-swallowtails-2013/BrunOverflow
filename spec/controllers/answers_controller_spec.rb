@@ -14,6 +14,8 @@ describe AnswersController do
     it "should create a new answer" do
       post :create, answer: {body: new_answer.body, question_id: new_answer.question_id}
       expect(assigns(:answer)).to be_a(Answer)
+      expect(assigns(:answer).body).to eq new_answer.body
+      expect(assigns(:answer).question_id).to eq new_answer.question_id
     end
 
     it "should create an answer associated with a question" do
