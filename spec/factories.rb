@@ -24,8 +24,8 @@ FactoryGirl.define do
 
   factory :vote do |f|
     f.value 1
-    f.user FactoryGirl.build(:user)
-    f.votable FactoryGirl.build(:question)
+    f.user { FactoryGirl.build(:user) }
+    f.votable { FactoryGirl.build(:question) }
   end
 
 end
