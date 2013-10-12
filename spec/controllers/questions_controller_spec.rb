@@ -10,22 +10,26 @@ describe QuestionsController do
           question:  FactoryGirl.attributes_for(:question)
         }
       }.to change { Question.count }.by 1
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to question_path(Question.last)
+    end
+
+    it "creating question with no title renders edit page again" do
+      expect {
+        invalid_question_attributes = FactoryGirl.attributes_for(:question)
+        invalid_question_attributes.delete(:title)
+        post :create, {
+          question:  invalid_question_attributes
+        }
+      }.not_to change { Question.count }
+      expect(current_path).to render_template :edit
     end
   end
 
   describe "GET #index" do
-    it "sets a variable with all the questions in the DB" do
-      3.times { FactoryGirl.create(:question) }
-      get :index
-      expect(assigns(:questions).count).to eq(3)
-    end
-
     it "returns all questions ordered by create date DESC" do
-      3.times { FactoryGirl.create(:question) }
-      question
+      questions = 3.times.map { FactoryGirl.create(:question) }
       get :index
-      expect(assigns(:questions).first).to eq(question)
+      expect(assigns(:questions)).to eq(questions.reverse)
     end
   end
 
