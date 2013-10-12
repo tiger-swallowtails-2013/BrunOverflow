@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20131011184818) do
     t.integer  "votable_id"
     t.string   "votable_type"
     t.integer  "user_id"
+    t.integer  "value"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
