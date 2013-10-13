@@ -1,9 +1,11 @@
 <h1><%= @question.title %></h1>
 <h3><%= @question.content %></h3>
 
+<div class="answers">
 <% @question.answers.each do |answer| %>
-  <%= answer.body %><br>
+    <%= answer.body %><br>
 <% end %>
+</div>
 
 <%= render partial: 'answers/inline_form' %>
 

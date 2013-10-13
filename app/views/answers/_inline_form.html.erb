@@ -1,5 +1,5 @@
-<%= form_for(@answer, remote: true) do |form| %>
+<%= form_for(@answer) do |form| %>
   <%= form.label :body %><%= form.text_field :body %>
   <%= form.hidden_field :question_id, value: "#{@question.id}" %>
-  <%= form.submit value: "create new comment" %>
+  <%= form.submit value: "create new comment"  %>
 <% end %>

@@ -1,8 +1,20 @@
 var test = function() {
   console.log("hello world")
 }
-$.ajax({
-  url: 'new_answer',
-  type: "POST",
-  success: test()
+
+var postAndShowAnswer = function(e) {
+  e.preventDefault();
+  $.post("/answers", $( this ).serialize())
+  .done(function(response) {
+    $(".answers").append(response)
+  });
+};
+
+var addAnswerListener = function() {
+  $("#new_answer").on('submit', postAndShowAnswer)
+}
+
+$(function() {
+  addAnswerListener()
 })
+

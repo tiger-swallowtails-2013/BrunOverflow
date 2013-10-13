@@ -8,6 +8,6 @@ class AnswersController < ApplicationController
     @answer = Answer.new(params[:answer])
     @answer.save
 
-    redirect_to @answer.question
+    render :json => render_to_string(:partial => 'new_answer', :locals => {:answer => @answer.body}).to_json
   end
 end
