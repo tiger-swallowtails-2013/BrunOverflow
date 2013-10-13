@@ -11,7 +11,9 @@
 #   - dist/**/*.js
 #
 src_files:
-  - assets/application.js
+  - app/assets/javascripts/application.js
+  - app/assets/javascripts/forms.js
+
 
 # stylesheets
 #

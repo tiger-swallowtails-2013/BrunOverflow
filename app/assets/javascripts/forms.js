@@ -1,23 +1,31 @@
-var clearErrors = function() {
-  $("#errors").text("")
+console.log("hello")
+
+var Forms = {
+
+  clearErrors: function() {
+    $("#errors").text("");
+  },
+
+  postAnswer: function(e, raosponse) {
+
+    $(".answers").append(raosponse);
+    this.reset();
+    Forms.clearErrors();
+  },
+
+  postError: function(e, raosponse) {
+    $("#errors").text(raosponse.responseJSON);
+  },
+
+  addAnswerListener: function() {
+    $("#new_answer").on('ajax:success', this.postAnswer);
+    $("#new_answer").on('ajax:error', this.postError);
+  }
 }
 
-var postAnswer = function(e, raosponse) {
-  $(".answers").append(raosponse);
-  this.reset();
-  clearErrors()
-}
 
-var postError = function(e, raosponse) {
-  $("#errors").text(raosponse.responseJSON)
-}
-
-var addAnswerListener = function() {
-  $("#new_answer").on('ajax:success', postAnswer)
-  $("#new_answer").on('ajax:error', postError)
-}
 
 $(function() {
-  addAnswerListener()
+  Forms.addAnswerListener()
 })
 
