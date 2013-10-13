@@ -17,5 +17,4 @@ feature "answers" do
     expect(page).to have_content(answered_question.answers.last.body)
   end
 
-
 end
