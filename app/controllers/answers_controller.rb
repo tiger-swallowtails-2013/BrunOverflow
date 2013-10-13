@@ -6,8 +6,10 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(params[:answer])
-    @answer.save
-
-    render :json => render_to_string(:partial => 'new_answer', :locals => {:answer => @answer.body}).to_json
+    if @answer.save
+      render :json => render_to_string(:partial => 'new_answer', :locals => {:answer => @answer.body}).to_json
+    else
+      render :json => @answer.errors.full_messages[0].to_json, :status => :unprocessable_entity
+    end
   end
 end

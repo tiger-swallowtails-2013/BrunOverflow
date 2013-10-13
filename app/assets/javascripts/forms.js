@@ -1,17 +1,20 @@
-var test = function() {
-  console.log("hello world")
+var clearErrors = function() {
+  $("#errors").text("")
 }
 
-var postAndShowAnswer = function(e) {
-  e.preventDefault();
-  $.post("/answers", $( this ).serialize())
-  .done(function(response) {
-    $(".answers").append(response)
-  });
-};
+var postAnswer = function(e, raosponse) {
+  $(".answers").append(raosponse);
+  this.reset();
+  clearErrors()
+}
+
+var postError = function(e, raosponse) {
+  $("#errors").text(raosponse.responseJSON)
+}
 
 var addAnswerListener = function() {
-  $("#new_answer").on('submit', postAndShowAnswer)
+  $("#new_answer").on('ajax:success', postAnswer)
+  $("#new_answer").on('ajax:error', postError)
 }
 
 $(function() {
