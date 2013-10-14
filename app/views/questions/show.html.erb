@@ -1,6 +1,5 @@
 <h1><%= @question.title %></h1>
 <h3><%= @question.content %></h3>
-
 <p>
 <% @question.answers.each_with_index do |answer, i| %>
   <strong>Answer <%= i + 1 %>:</strong><br>
