@@ -53,34 +53,28 @@ end
 
 # create votes on questions and answers
 #
-# users = User.all
-# 5.times {users.pop}
-# users.each do |user|
-#   rand(15..30).times do
+users = User.all
+5.times {users.pop}
+users.each do |user|
+  rand(100..150).times do
 
-#     questions_without_votes = Question.where('votes_count = 0')
-#     question = (questions_without_votes.size == 0 ? Question.all.sample : questions_without_votes.sample)
-#     vote = Vote.create(:value => 1, :user_id => user.id)
+    questions_without_votes = Question.where('votes_count = 0')
+    question = (questions_without_votes.size == 0 ? Question.all.sample : questions_without_votes.sample)
+    question.votes.create(:value => 1, :votable => Question.find(question.id), :user_id => user.id)
+    question.reload
 
-#     question.votes.create(:value => 1, :user_id => user.id)
-#     #user.votes << vote
+    answers_without_votes = Answer.where('votes_count = 0')
+    answer = (answers_without_votes.size == 0 ? Answer.all.sample : answers_without_votes.sample)
+    answer.votes.create(:value => 1, :votable => Answer.find(answer.id), :user_id => user.id)
+    answer.reload
 
-#     question.reload
+  end
 
-#     vote = Vote.create(:value => 1)
-#     answers_without_votes = Answer.where('votes_count = 0')
-#     answer = (answers_without_votes.size == 0 ? Answer.all.sample : answers_without_votes.sample)
-#     answer.votes << vote
-#     user.votes << vote
-
-#     answer.reload
-#   end
-
-# end
+end
 
 p "Users: #{User.count}"
 p "Questions: #{Question.count}"
 p "Answers: #{Answer.count}"
-# p "Votes: #{Vote.count}"
+p "Votes: #{Vote.count}"
 
 
