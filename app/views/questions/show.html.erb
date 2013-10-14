@@ -1,8 +1,11 @@
 <h1><%= @question.title %></h1>
 <h3><%= @question.content %></h3>
-<% @question.answers.each do |answer| %>
-  <span><%= answer.body %></span><br>
+<p>
+<% @question.answers.each_with_index do |answer, i| %>
+  <strong>Answer <%= i + 1 %>:</strong><br>
+  <%= answer.body %>
+</p>
 <% end %>
-
+<br>
 <%= render partial: 'answers/inline_form' %>
 
