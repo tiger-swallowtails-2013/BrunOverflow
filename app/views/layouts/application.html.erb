@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+        <%= nav_link 'Home', root_path %>
+        <%= nav_link 'Ask a Question', new_question_path %>
+        <%= nav_link 'Sign Up', new_user_path %>
+        <%= nav_link 'Sign In', login_path %>
+    </ul>
+  </div>
 
 <%= yield %>
 </body>
