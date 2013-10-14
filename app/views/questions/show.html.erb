@@ -1,11 +1,15 @@
 <h1><%= @question.title %></h1>
 <h3><%= @question.content %></h3>
-<p>
-<% @question.answers.each_with_index do |answer, i| %>
-  <strong>Answer <%= i + 1 %>:</strong><br>
-  <%= answer.body %>
-</p>
-<% end %>
-<br>
+
+<div id="errors"></div>
+
+<div class="answers">
+  <p>
+  <% @question.answers.each_with_index do |answer, i| %>
+    <strong>Answer <%= i + 1 %>:</strong><br>
+    <%= answer.body %>
+  </p>
+  <% end %>
+</div>
 <%= render partial: 'answers/inline_form' %>
 
